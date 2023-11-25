@@ -21,7 +21,7 @@ def insert_data():
         connection = pymysql.connect(**db_config)
         cursor = connection.cursor()
         print(data)
-        job_query = "INSERT INTO Job_Listings (job_title,description,time_posted,pay_per_hr,duration,ID) VALUES (%s,%s, %s,%s, %s)"
+        job_query = "INSERT INTO Job_Listings (job_title,description,time_posted,pay_per_hr,duration) VALUES (%s,%s, %s,%s, %s)"
         users = "INSERT INTO Users (name,email,ID) VALUES (%s, %s,%s)"
         table = data.get("table")
         if (table == "Job_Listings"):
