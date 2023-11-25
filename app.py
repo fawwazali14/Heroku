@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     data = {
         "name": "John Doe",
-        "age": 47,
+        "age": 97,
         "city": "New York",
         "is_student": False,
         "grades": [85, 90, 78]
