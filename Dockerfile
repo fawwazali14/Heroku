@@ -11,5 +11,5 @@ RUN pip install -r requirements.txt
 # Copy the Flask app code to the container
 COPY . .
 
-# Run the Flask app
-CMD ["python", "app.py"]
+# Run both Flask apps using Gunicorn (adjust as needed)
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app1:app", "-w", "4", "-b", "0.0.0.0:5001", "app2:app"]
