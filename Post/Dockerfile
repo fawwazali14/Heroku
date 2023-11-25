@@ -5,11 +5,11 @@ FROM python:3.9
 WORKDIR /app
 
 # Copy the requirements file and install dependencies
-COPY heroku/Post/requirements.txt .
+COPY Posts/requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the Flask app code to the container
-COPY heroku/Post/ .
+COPY Posts/ .
 
 # Run the Flask app
 CMD ["python", "app.py"]
