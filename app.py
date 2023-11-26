@@ -1,8 +1,10 @@
 import os
 from flask import Flask, request, jsonify
 import pymysql
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 db_config = {
     'host': 'dbms.cbj29vmpnvrx.us-east-1.rds.amazonaws.com',
