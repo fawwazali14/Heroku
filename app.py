@@ -25,6 +25,7 @@ def insert_data():
         print(data)
         job_query = "INSERT INTO Job_Listings (job_title,description,time_posted,pay_per_hr,duration) VALUES (%s,%s, %s,%s, %s)"
         users = "INSERT INTO Users (name,email,ID) VALUES (%s, %s,%s)"
+        applied_query = "Insert into Applies values (%s,%s)"
         table = data.get("table")
         if (table == "Job_Listings"):
             title = data.get("job_title")
@@ -39,6 +40,11 @@ def insert_data():
             email = data.get("email")
             ID = data.get("ID")
             cursor.execute(users, (name,email,ID))
+        elif table == "Applied":
+            ID = data.get("ID")
+            Jid = data.get ("jid")
+            cursor.execute(applied_query, (ID,Jid))
+
 
         connection.commit()
         cursor.close()
