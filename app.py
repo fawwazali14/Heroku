@@ -63,7 +63,8 @@ def insert_data():
 
         elif table == "Delete":
             ID = data.get("ID")
-            cursor.callproc('deletequery', args=(ID))
+            print(ID)
+            cursor.callproc('deletequery', args=ID)
 
         connection.commit()
         cursor.close()
