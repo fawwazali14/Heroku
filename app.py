@@ -29,6 +29,8 @@ def insert_data():
 
 
         table = data.get("table")
+        print("just above")
+        print(table)
         if (table == "Job_Listings"):
             title = data.get("job_title")
             description = data.get("description")
@@ -59,7 +61,7 @@ def insert_data():
             quality2 = data.get("quality2")
             quality3 = data.get("quality3")
 
-        elif table=="Delete":
+        elif table == "Delete":
             ID = data.get("ID")
             cursor.callproc('deletequery', args=(ID))
 
