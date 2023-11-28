@@ -23,7 +23,7 @@ def insert_data():
         connection = pymysql.connect(**db_config)
         cursor = connection.cursor()
         print(data)
-        users = "INSERT INTO Users (name,email,ID) VALUES (%s, %s,%s)"
+        users = "INSERT INTO Users (name,email,ID,Rating) VALUES (%s, %s,%s,%s)"
         applied_query = "Insert into Applies values (%s,%s)"
 
 
@@ -46,7 +46,8 @@ def insert_data():
             name = data.get("name")
             email = data.get("email")
             ID = data.get("ID")
-            cursor.execute(users, (name,email,ID))
+            rating = 5.0
+            cursor.execute(users, (name,email,ID,rating))
         elif table == "Applied":
             ID = data.get("ID")
             Jid = data.get ("jid")
