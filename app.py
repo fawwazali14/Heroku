@@ -23,7 +23,6 @@ def insert_data():
         connection = pymysql.connect(**db_config)
         cursor = connection.cursor()
         print(data)
-        job_query = "INSERT INTO Job_Listings (job_title,description,time_posted,pay_per_hr,duration,ID) VALUES (%s,%s, %s,%s, %s,%s)"
         users = "INSERT INTO Users (name,email,ID) VALUES (%s, %s,%s)"
         applied_query = "Insert into Applies values (%s,%s)"
 
@@ -39,7 +38,9 @@ def insert_data():
             duration = data.get("duration")
             ID = data.get("ID")
             print(title,description,pay,time,duration,ID)
-            cursor.execute(job_query, (title, description, time, pay, duration,ID))
+            job_query = f"INSERT INTO Job_Listings (job_title,description,time_posted,pay_per_hr,duration,ID) VALUES ('{title}','{description}','{time}','{pay}','{description}','{ID}')"
+
+            cursor.execute(job_query)
 
         elif(table =="Users"):
             name = data.get("name")
