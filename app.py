@@ -38,6 +38,7 @@ def insert_data():
             time = data.get("time_posted")
             duration = data.get("duration")
             ID = data.get("ID")
+            print(title,description,pay,time,duration,ID)
             cursor.execute(job_query, (title, description, time, pay, duration,ID))
 
         elif(table =="Users"):
