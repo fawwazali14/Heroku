@@ -46,7 +46,7 @@ def insert_data():
             name = data.get("name")
             email = data.get("email")
             ID = data.get("ID")
-            rating = 5.0
+            rating = 5
             cursor.execute(users, (name,email,ID,rating))
         elif table == "Applied":
             ID = data.get("ID")
