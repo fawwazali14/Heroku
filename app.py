@@ -65,8 +65,8 @@ def insert_data():
             quality3 = data.get("quality3")
 
         elif table == "Delete":
-            ID = str(data.get("ID"))
-            print(ID)
+            ID = (data.get("ID"))
+
             cursor.callproc('deletequery', args=ID)
 
         connection.commit()
