@@ -53,7 +53,7 @@ def insert_data():
             phone_number = data.get("phone_number")
             bio = data.get("bio")
             update_user = f"UPDATE Users SET name = '{name}', email = '{email}',phone_number = '{phone_number}',bio = '{bio}' WHERE ID = '{ID}'"
-
+            cursor.execute(update_user)
             quality1 = data.get("quality1")
             quality2 = data.get("quality2")
             quality3 = data.get("quality3")
