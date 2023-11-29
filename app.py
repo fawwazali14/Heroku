@@ -41,6 +41,17 @@ def insert_data():
             job_query = f"INSERT INTO Job_Listings (job_title,description,time_posted,pay_per_hr,duration,ID) VALUES ('{title}','{description}','{time}','{pay}','{description}','{ID}')"
 
             cursor.execute(job_query)
+        elif (table=="rating"):
+            x = data.get("user_id")
+            rating = data.get("rating")
+            query = f"SELECT ratingavg({rating}, '{x}') AS calculated_rating"
+            cursor.execute(query)
+            result = cursor.fetchone()
+            calculated_rating = result[0] if result else None
+            print("Calculated Rating:", calculated_rating)
+            return jsonify({"rating": calculated_rating})
+
+
 
         elif(table =="Users"):
             name = data.get("name")
