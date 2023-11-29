@@ -80,10 +80,10 @@ def insert_data():
             ID = data.get("ID")
             email = data.get("email")
             name = data.get("name")
-            phone_number = int(data.get("phone_number"))
+            phone_number = data.get("phone_number")
             bio = data.get("bio")
 
-            update_user = f"UPDATE Users SET name = '{name}', email = '{email}',phone_number = {phone_number},bio = '{bio}' WHERE ID = '{ID}'"
+            update_user = f"UPDATE Users SET name = '{name}', email = '{email}',phone_number = '{phone_number}',bio = '{bio}' WHERE ID = '{ID}'"
             cursor.execute(update_user)
             cursor.close()
             quality1 = data.get("quality1")
