@@ -92,6 +92,13 @@ def insert_data():
             print("boom3")
 
 
+        elif table == "report":
+            uid = data.get("reporter_id")
+            ouid = data.get("reported_id")
+            query = f"Insert into Reports(reporter_id,reported_id,report_description) VALUES ('{uid}','{ouid}','User Reported')"
+            cursor.execute(query)
+            cursor.close()
+
         elif table == "Delete":
             ID = str((data.get("ID")))
             try:
