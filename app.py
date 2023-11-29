@@ -82,7 +82,7 @@ def insert_data():
             name = data.get("name")
             phone_number = data.get("phone_number")
             bio = data.get("bio")
-            print(data.get())
+
             update_user = f"UPDATE Users SET name = '{name}', email = '{email}',phone_number = {phone_number},bio = '{bio}' WHERE ID = '{ID}'"
             cursor.execute(update_user)
             cursor.close()
