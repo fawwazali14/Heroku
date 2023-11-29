@@ -55,12 +55,9 @@ def insert_data():
             query2 = f"UPDATE Users SET Rating = %s WHERE ID = '{x}'"
             cursor2.execute(query2, calculated_rating)
 
-            result = cursor2.execute(query2)
-
             print(calculated_rating)
             print("Calculated Rating:", calculated_rating)
             cursor2.close()
-            return jsonify({"rating": calculated_rating})
 
 
 
