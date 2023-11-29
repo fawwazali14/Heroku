@@ -50,9 +50,11 @@ def insert_data():
             cursor.execute(query)
             result = cursor.fetchone()
             print(result)
-            calculated_rating = result[0] if result else None
-            query2 = f"Update Users SET Rating ={calculated_rating} where ID = '{x}' "
             cursor2 = connection.cursor()
+            calculated_rating = result[0] if result else None
+            query2 = "UPDATE Users SET Rating = %s WHERE ID = %s"
+            cursor2.execute(query2, (calculated_rating, x))
+
             result = cursor2.execute(query2)
 
             print(calculated_rating)
