@@ -71,6 +71,11 @@ def insert_data():
             ID = data.get("ID")
             Jid = data.get ("jid")
             cursor.execute(applied_query, (ID,Jid))
+            cursor.close()
+            cursor2 = connection.cursor()
+            cursor2.callproc('InsertNotification', args=(Jid,))
+            cursor2.close()
+
         elif table == "Usersupdate":
             ID = data.get("ID")
             email = data.get("email")
